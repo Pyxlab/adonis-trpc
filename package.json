@@ -37,7 +37,8 @@
     },
     "config": {
         "commitizen": {
-            "path": "./node_modules/cz-conventional-changelog"
+            "path": "./node_modules/cz-conventional-changelog",
+            "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
         }
     }
 }
