@@ -1,5 +1,5 @@
 {
-    "name": "adonis-trpc",
+    "name": "@pyxlab/adonis-trpc",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
