@@ -1,0 +1,43 @@
+{
+    "name": "adonis-trpc",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "mrm": "mrm --preset=@adonisjs/mrm-preset",
+        "commit": "git-cz"
+    },
+    "keywords": [],
+    "author": "Walaff Fernandes",
+    "license": "ISC",
+    "devDependencies": {
+        "@adonisjs/mrm-preset": "^5.0.3",
+        "@commitlint/cli": "^17.4.2",
+        "@commitlint/config-conventional": "^17.4.2",
+        "commitizen": "^4.3.0",
+        "cz-conventional-changelog": "^3.3.0",
+        "husky": "^8.0.3",
+        "mrm": "^4.1.13"
+    },
+    "mrmConfig": {
+        "core": false,
+        "license": "MIT",
+        "services": [
+            "github-actions"
+        ],
+        "minNodeVersion": "16.13.1",
+        "probotApps": [],
+        "runGhActionsOnWindows": false
+    },
+    "husky": {
+        "hooks": {
+            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+        }
+    },
+    "config": {
+        "commitizen": {
+            "path": "./node_modules/cz-conventional-changelog"
+        }
+    }
+}
