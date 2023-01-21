@@ -1,6 +1,6 @@
 {
   "name": "@pyxlab/adonis-trpc",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "",
   "main": "build/providers/TrpcProvider.js",
   "scripts": {
