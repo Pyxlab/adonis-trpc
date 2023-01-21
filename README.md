@@ -1,7 +1,7 @@
 <br />
 
 <div align="center">
-  <img src="./assets/adonis-trpc.svg" width="400px">
+  <img src="https://raw.githubusercontent.com/Pyxlab/adonis-trpc/84c2e5f6d36cf6e5d12145e139c992011587fd84/assets/adonis-trpc.svg" width="400px">
 </div>
 
 <br />
