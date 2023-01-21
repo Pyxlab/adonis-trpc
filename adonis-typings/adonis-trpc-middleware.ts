@@ -1,4 +1,4 @@
-declare module '@ioc:Pyxlab/Adonis/TrpcMiddleware' {
+declare module '@ioc:Pyxlab/Adonis/Trpc/Middleware' {
   import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
   import { AdonisTrpcConfig } from '@ioc:Pyxlab/Adonis/Trpc'
 

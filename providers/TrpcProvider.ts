@@ -12,7 +12,7 @@ export default class TrpcProvider {
       return trpc
     })
 
-    this.app.container.bind('Pyxlab/Adonis/TrpcMiddleware', () => {
+    this.app.container.bind('Pyxlab/Adonis/Trpc/Middleware', () => {
       const { TrpcMiddleware } = require('../src/TrpcMiddleware')
 
       return new TrpcMiddleware(config)
