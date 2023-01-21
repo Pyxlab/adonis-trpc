@@ -1,7 +1,7 @@
 {
   "name": "@pyxlab/adonis-trpc",
   "version": "1.0.1",
-  "description": "",
+  "description": "AdonisJS provider for trpc",
   "main": "build/providers/TrpcProvider.js",
   "scripts": {
     "pretest": "npm run lint",
@@ -19,7 +19,16 @@
     "version": "npm run build",
     "sync-labels": "github-label-sync --labels ./node_modules/@adonisjs/mrm-preset/gh-labels.json Pyxlab/adonis-trpc"
   },
-  "keywords": [],
+  "keywords": [
+    "adonisjs",
+    "adonis",
+    "adonisjs-provider",
+    "adonisjs-trpc",
+    "adonis-trpc",
+    "trpc",
+    "adonisjs-trpc-provider",
+    "adonis-trpc-provider"
+  ],
   "author": "Walaff Fernandes",
   "license": "MIT",
   "devDependencies": {
@@ -80,7 +89,7 @@
     "build/providers",
     "build/templates",
     "build/instructions.js",
-    "build/instructions.d.ts"
+    "build/instructions.md"
   ],
   "eslintConfig": {
     "extends": [
@@ -121,11 +130,10 @@
   },
   "adonisjs": {
     "instructions": "./build/instructions.js",
+    "instructionsMd": "./build/instructions.md",
     "providers": [
       "@pyxlab/adonis-trpc"
     ],
-    "types": [
-      "@pyxlab/adonis-trpc"
-    ]
+    "types": "@pyxlab/adonis-trpc"
   }
 }
