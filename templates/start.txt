@@ -1,0 +1,29 @@
+import Route from '@ioc:Adonis/Core/Route'
+import Server from '@ioc:Adonis/Core/Server'
+
+/**
+|--------------------------------------------------------------------------
+| Initialize TRPC Middleware
+|--------------------------------------------------------------------------
+|
+| This is the server that will be used to intercept all TRPC requests.
+|
+*/
+Server.middleware.register([
+    () => import('@ioc:Adonis/Core/BodyParser'),
+    () => import('@ioc:Pyxlab/Adonis/Trpc/Middleware'),
+])
+
+/**
+|--------------------------------------------------------------------------
+| Config Route
+|--------------------------------------------------------------------------
+|
+| This route needs to start for middleware to work properly, AdonisJS does
+| not execute the middleware chain, if there is no registered route
+| for the current HTTP request.
+|
+*/
+Route.any('*', ({ response }) => {
+  response.status(404).send('Not Found')
+})

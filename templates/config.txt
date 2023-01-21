@@ -1,4 +1,4 @@
-import { AdonisTrpcConfig } from '@ioc:Pyxlab/Adonis/Trcp'
+import { AdonisTrpcConfig } from '@ioc:Pyxlab/Adonis/Trpc'
 
 const trpc: AdonisTrpcConfig = {
   /*
@@ -9,7 +9,7 @@ const trpc: AdonisTrpcConfig = {
   | The base path to use for the trpc server
   |
   */
-  basePath: '/api/trpc',
+  basePath: '{{{ basePathName }}}',
 
   /*
   |--------------------------------------------------------------------------

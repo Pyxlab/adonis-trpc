@@ -25,6 +25,7 @@
   "devDependencies": {
     "@adonisjs/mrm-preset": "^5.0.3",
     "@adonisjs/require-ts": "^2.0.13",
+    "@adonisjs/sink": "^5.4.2",
     "@commitlint/cli": "^17.4.2",
     "@commitlint/config-conventional": "^17.4.2",
     "@types/node": "^18.11.18",
@@ -77,7 +78,9 @@
     "build/adonis-typings",
     "build/src",
     "build/providers",
-    "build/templates"
+    "build/templates",
+    "build/instructions.js",
+    "build/instructions.d.ts"
   ],
   "eslintConfig": {
     "extends": [
@@ -114,18 +117,12 @@
     "anyBranch": false
   },
   "adonisjs": {
+    "instructions": "./build/instructions.js",
     "providers": [
       "@pyxlab/adonis-trpc"
     ],
     "types": [
       "@pyxlab/adonis-trpc"
-    ],
-    "templates": {
-      "basePath": "./build/templates",
-      "config": {
-        "src": "config/trpc.txt",
-        "dest": "trpc"
-      }
-    }
+    ]
   }
 }
