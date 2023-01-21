@@ -11,7 +11,7 @@ export const t = initTRPC.context<Context>().create({
 })
 
 const isAuthenticated = t.middleware(async ({ ctx, next }) => {
-  const isAuth = ctx.auth.check()
+  const isAuth = ctx.auth.isAuthenticated
 
   if (!isAuth) {
     throw new TRPCError({

@@ -7,7 +7,9 @@ export class TrpcMiddleware {
   constructor(private config: AdonisTrpcConfig) {}
 
   public async handle(ctx: HttpContextContract, next: () => Promise<void>) {
-    const { request, response } = ctx
+    const { request, response, auth } = ctx
+
+    await auth.check()
 
     const url = new URL(request.completeUrl(true))
 
