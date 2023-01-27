@@ -12,6 +12,18 @@ export default class TrpcProvider {
       return trpc
     })
 
+    this.app.container.bind('Pyxlab/Adonis/Trpc/Router', () => {
+      const { router } = require('../src/TRPC')
+
+      return router
+    })
+
+    this.app.container.bind('Pyxlab/Adonis/Trpc/Procedure', () => {
+      const procedure = require('../src/Procedure').default
+
+      return procedure
+    })
+
     this.app.container.bind('Pyxlab/Adonis/Trpc/Middleware', () => {
       const { TrpcMiddleware } = require('../src/TrpcMiddleware')
 
