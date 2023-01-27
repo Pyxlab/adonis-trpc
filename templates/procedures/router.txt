@@ -1,0 +1,10 @@
+import router from '@ioc:Pyxlab/Adonis/Trpc/Router'
+{{#importProcedures}}
+import { {{{procedure}}} } from './{{{filename}}}'
+{{/importProcedures}}
+
+export const {{{router}}}Router = router({
+  {{#importProcedures}}
+  {{{name}}}: {{{procedure}}},
+  {{/importProcedures}}
+})

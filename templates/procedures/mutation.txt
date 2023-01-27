@@ -1,0 +1,15 @@
+import { z } from 'zod'
+import procedure from '@ioc:Pyxlab/Adonis/Trpc/Procedure'
+
+export const {{{procedure}}}Schema = z.object({})
+
+export const {{{procedure}}}Procedure = procedure
+{{#isProtected}}
+  .protected
+{{/isProtected}}
+  .input({{{procedure}}}Schema)
+  .mutation(async ({ ctx: { auth }, input }) => {
+    const user = auth.user
+
+    return user?.serialize()
+  })

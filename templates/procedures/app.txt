@@ -1,0 +1,13 @@
+import router from '@ioc:Pyxlab/Adonis/Trpc/Router'
+{{#importRoutes}}
+import { {{{name}}}Router } from './{{{filename}}}'
+{{/importRoutes}}
+
+const appRouter = router({
+{{#importRoutes}}
+  {{{name}}}: {{{name}}}Router,
+{{/importRoutes}}
+})
+
+export type AppRouter = typeof appRouter
+export default appRouter

@@ -85,6 +85,7 @@
   "types": "build/adonis-typings/index.d.ts",
   "files": [
     "build/adonis-typings",
+    "build/commands",
     "build/src",
     "build/providers",
     "build/templates",
@@ -133,6 +134,9 @@
     "instructionsMd": "./build/instructions.md",
     "providers": [
       "@pyxlab/adonis-trpc"
+    ],
+    "commands": [
+      "@pyxlab/adonis-trpc/build/commands"
     ],
     "types": "@pyxlab/adonis-trpc"
   }
