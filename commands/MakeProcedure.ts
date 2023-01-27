@@ -1,7 +1,7 @@
 import { BaseCommand, args, flags } from '@adonisjs/core/build/standalone'
 import { StringTransformer } from '@adonisjs/ace/build/src/Generator/StringTransformer'
 import { join } from 'node:path'
-import fs from 'node:fs'
+import { existsSync, readdirSync, readFileSync, unlinkSync } from 'node:fs'
 
 interface Resources {
   prefix: string
@@ -96,7 +96,7 @@ export default class MakeProcedure extends BaseCommand {
     const rootDir = this.application.cliCwd || this.application.appRoot
 
     const modelIndexesPath = join(path || 'app/Routes', modelName, 'index.ts')
-    const modelIndexesPathExist = fs.existsSync(modelIndexesPath)
+    const modelIndexesPathExist = existsSync(modelIndexesPath)
 
     const modelPath = this.procedure
       ? join(path || 'app/Routes', modelName, `${procedureName}.ts`)
@@ -114,7 +114,7 @@ export default class MakeProcedure extends BaseCommand {
 
     if (this.resource) {
       for await (const resource of resourcesPath) {
-        const resourcePathExist = fs.existsSync(resource.resourcePath)
+        const resourcePathExist = existsSync(resource.resourcePath)
 
         if (resourcePathExist) {
           this.logger
@@ -139,7 +139,7 @@ export default class MakeProcedure extends BaseCommand {
       }
     }
 
-    const modelPathExist = fs.existsSync(modelPath)
+    const modelPathExist = existsSync(modelPath)
 
     if (modelPathExist && !this.resource) {
       this.logger.action('create').skipped(modelPath, 'File already exists')
@@ -190,7 +190,7 @@ export default class MakeProcedure extends BaseCommand {
       this.generator.clear()
 
       if (modelIndexesPathExist) {
-        fs.unlinkSync(modelIndexesPath)
+        unlinkSync(modelIndexesPath)
       }
 
       const router = this.getRouterName(modelName)
@@ -224,7 +224,7 @@ export default class MakeProcedure extends BaseCommand {
         }
 
         if (modelIndexesPathExist) {
-          fs.unlinkSync(modelIndexesPath)
+          unlinkSync(modelIndexesPath)
         }
       }
 
@@ -245,9 +245,9 @@ export default class MakeProcedure extends BaseCommand {
 
     if (!modelIndexesPathExist) {
       const appStub = getStub('procedures', 'app.txt')
-      const files = fs
-        .readdirSync(join(rootDir, path || 'app/Routes'))
-        .filter((file) => file !== 'index.ts')
+      const files = readdirSync(join(rootDir, path || 'app/Routes')).filter(
+        (file) => file !== 'index.ts'
+      )
 
       const routes: Router[] = []
 
@@ -260,8 +260,8 @@ export default class MakeProcedure extends BaseCommand {
         })
       }
 
-      if (fs.existsSync(join(rootDir, path || 'app/Routes', 'index.ts'))) {
-        fs.unlinkSync(join(rootDir, path || 'app/Routes', 'index.ts'))
+      if (existsSync(join(rootDir, path || 'app/Routes', 'index.ts'))) {
+        unlinkSync(join(rootDir, path || 'app/Routes', 'index.ts'))
       }
 
       this.generator
@@ -287,7 +287,7 @@ export default class MakeProcedure extends BaseCommand {
    * @returns An array of string with the file names
    */
   private listFiles(path: string): string[] {
-    return fs.readdirSync(path).filter((file) => file.endsWith('.ts'))
+    return readdirSync(path).filter((file) => file.endsWith('.ts'))
   }
 
   /**
@@ -296,7 +296,7 @@ export default class MakeProcedure extends BaseCommand {
    * @returns The name of the procedure or null if not found
    */
   private findProcedure(filePath: string): string | null {
-    const fileContent = fs.readFileSync(filePath, 'utf-8')
+    const fileContent = readFileSync(filePath, 'utf-8')
     const lines = fileContent.split('\n')
     for (const line of lines) {
       if (line.startsWith('export const') || line.startsWith('const')) {
