@@ -277,8 +277,8 @@ export default class MakeProcedure extends BaseCommand {
 
     this.generator.clear()
 
-    this.runMakeModel()
-    this.runMakeMigration()
+    await this.runMakeModel()
+    await this.runMakeMigration()
   }
 
   /**
