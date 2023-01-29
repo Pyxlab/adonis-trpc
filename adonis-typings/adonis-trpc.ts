@@ -26,4 +26,6 @@ declare module '@ioc:Pyxlab/Adonis/Trpc' {
     basePath: string
     router: () => Promise<{ default: AnyRouter }>
   }
+
+  export { TRPCError } from '@trpc/server'
 }
