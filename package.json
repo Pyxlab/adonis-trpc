@@ -127,7 +127,8 @@
     "anyBranch": false
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://npm.pkg.github.com"
   },
   "adonisjs": {
     "instructions": "./build/instructions.js",
