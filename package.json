@@ -29,8 +29,16 @@
     "adonisjs-trpc-provider",
     "adonis-trpc-provider"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pyxlab/adonis-trpc.git"
+  },
   "author": "Walaff Fernandes",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Pyxlab/adonis-trpc/issues"
+  },
+  "homepage": "https://github.com/Pyxlab/adonis-trpc#readme",
   "devDependencies": {
     "@adonisjs/mrm-preset": "^5.0.3",
     "@adonisjs/require-ts": "^2.0.13",
@@ -127,6 +135,7 @@
     "anyBranch": false
   },
   "publishConfig": {
+    "tag": "latest",
     "access": "public"
   },
   "adonisjs": {
