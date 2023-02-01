@@ -128,7 +128,7 @@
   },
   "publishConfig": {
     "access": "public",
-    "registry": "https://npm.pkg.github.com"
+    "@pyxlab:registry": "https://npm.pkg.github.com"
   },
   "adonisjs": {
     "instructions": "./build/instructions.js",
