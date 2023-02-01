@@ -1,4 +1,5 @@
 declare module '@ioc:Adonis/Lucid/Orm' {
+  import { DateTime } from 'luxon'
   /**
    * The `InstanceTypeModel` type is a helper type that is used to infer the instance type of a `LucidModel`
    */
@@ -37,6 +38,8 @@ declare module '@ioc:Adonis/Lucid/Orm' {
     [P in K]: T[P] extends infer O
       ? O extends Primitive
         ? O
+        : O extends DateTime
+        ? Date
         : O extends InstanceTypeModel[]
         ? DeepInferTypeModelArray<Omit<O, KeysOfInstanceTypeRelations>, K>
         : DeepInferTypeModel<O, K | KeysOfInstanceTypeRelations>

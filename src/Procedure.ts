@@ -1,8 +1,9 @@
+import { AuthContract } from '@ioc:Adonis/Addons/Auth'
 import { TRPCError } from '@trpc/server'
 import { t } from './TRPC'
 
-const isAuthenticated = t.middleware(async ({ ctx, next }) => {
-  const isAuth = ctx.auth.isAuthenticated
+const isAuthenticated = t.middleware(async ({ ctx: { auth }, next }) => {
+  const isAuth = auth.isAuthenticated
 
   if (!isAuth) {
     throw new TRPCError({
@@ -12,7 +13,9 @@ const isAuthenticated = t.middleware(async ({ ctx, next }) => {
   }
 
   return next({
-    ctx,
+    ctx: {
+      auth: auth as Required<AuthContract>,
+    },
   })
 })
 
