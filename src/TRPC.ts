@@ -11,3 +11,5 @@ export const t = initTRPC.context<Context>().create({
 })
 
 export const router = t.router
+
+export { TRPCError } from '@trpc/server'
