@@ -19,6 +19,9 @@
     "version": "npm run build",
     "sync-labels": "github-label-sync --labels ./node_modules/@adonisjs/mrm-preset/gh-labels.json Pyxlab/adonis-trpc"
   },
+  "engines": {
+    "node": ">=16.0.0"
+  },
   "keywords": [
     "adonisjs",
     "adonis",
